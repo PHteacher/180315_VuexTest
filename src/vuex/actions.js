@@ -1,5 +1,5 @@
-
-import {ADD_TODO, DELETE_TODO, CLEAR_ALL_COMPLETE, SELECT_ALL_TODO}  from './mutation-types'
+import {ADD_TODO, DELETE_TODO, CLEAR_ALL_COMPLETE, SELECT_ALL_TODO, RECEIVE_TODOS}  from './mutation-types'
+import storageUtil from '../utils/storageUtil'
 
 export default {
   addTodo ({commit}, todo) {
@@ -19,5 +19,13 @@ export default {
   // 全选/全不选
   selectAll ({commit}, isSelectAll) {
     commit(SELECT_ALL_TODO, {isSelectAll})
+  },
+
+  // 读取保存的todos
+  readTodos ({commit}) {
+    setTimeout(() => {
+      const todos = storageUtil.readTodos()
+      commit(RECEIVE_TODOS, {todos})
+    }, 1000)
   }
 }

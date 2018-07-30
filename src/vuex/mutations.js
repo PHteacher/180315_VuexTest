@@ -1,4 +1,4 @@
-import {ADD_TODO, DELETE_TODO, CLEAR_ALL_COMPLETE, SELECT_ALL_TODO} from './mutation-types'
+import {ADD_TODO, DELETE_TODO, CLEAR_ALL_COMPLETE, SELECT_ALL_TODO, RECEIVE_TODOS} from './mutation-types'
 
 export default {
   // 增加todo
@@ -18,5 +18,9 @@ export default {
   // 全选或全不选todo
   [SELECT_ALL_TODO](state, {isSelectAll}) {
     state.todos.forEach(todo => todo.complete = isSelectAll)
+  },
+  // 接收todos
+  [RECEIVE_TODOS](state, {todos}) {
+    state.todos = todos
   },
 }

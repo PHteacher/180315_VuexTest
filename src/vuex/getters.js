@@ -1,3 +1,7 @@
+/*
+问题: 哪些计算属性需要写在getters中?
+基于state中的任意属性数据的getter计算属性
+ */
 export default {
   totalSize (state) {
     return state.todos.length

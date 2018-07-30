@@ -14,6 +14,10 @@
   import Footer from './components/footer.vue'
 
   export default {
+    mounted () {
+      this.$store.dispatch('readTodos')
+    },
+
     components: {
       TodoHeader: Header,
       List,
