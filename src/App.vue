@@ -1,39 +1,37 @@
 <template>
-  <div>
-    <p>--click {{$store.state.count}} times, count is {{evenOrOdd}}</p>
-    <button @click="increment">+</button>
-    <button @click="decrement">-</button>
-    <button @click="incrementIfOdd">increment if odd</button>
-    <button @click="incrementAsync">increment async</button>
+  <div class="todo-container">
+    <div class="todo-wrap">
+      <TodoHeader/>
+      <List/>
+      <TodoFooter/>
+    </div>
   </div>
 </template>
 
 <script>
+  import Header from './components/header.vue'
+  import List from './components/list.vue'
+  import Footer from './components/footer.vue'
+
   export default {
-
-    computed: {
-      evenOrOdd () {
-        return this.$store.getters.evenOrOdd
-      }
-    },
-
-    methods: {
-      increment () {
-        this.$store.dispatch('increment')
-      },
-      decrement () {
-        this.$store.dispatch('decrement')
-      },
-      incrementIfOdd () {
-        this.$store.dispatch('incrementIfOdd')
-      },
-      incrementAsync () {
-        this.$store.dispatch('incrementAsync')
-      }
+    components: {
+      TodoHeader: Header,
+      List,
+      TodoFooter: Footer
     }
   }
 </script>
 
-<style>
 
+<style>
+  .todo-container {
+    width: 600px;
+    margin: 0 auto;
+  }
+
+  .todo-container .todo-wrap {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
 </style>

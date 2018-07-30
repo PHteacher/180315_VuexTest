@@ -1,12 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
-import store from './store'
+import store from './vuex/store'
 
-export default new Vue({
+import './main.css'
+/*
+入口js
+ */
+new Vue({
   el: '#app',
-  components: {
-    App,
+  components: {// 注册组件
+    App
   },
-  template: '<App/>',
-  store, // 注册vuex的store --> 所有组件对象都多了一个属性: $store
+  template: '<App/>',  // 将App标签渲染到el对应div中
+  store
 })
