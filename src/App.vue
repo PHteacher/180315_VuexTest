@@ -1,41 +1,25 @@
 <template>
-  <div class="todo-container">
-    <div class="todo-wrap">
-      <TodoHeader/>
-      <List/>
-      <TodoFooter/>
-    </div>
+  <div class="container">
+    <Search/>
+    <users-main/>
   </div>
 </template>
 
 <script>
-  import Header from './components/header.vue'
-  import List from './components/list.vue'
-  import Footer from './components/footer.vue'
+  import axios from 'axios'
+  import Search from './components/search.vue'
+  import Main from './components/main.vue'
 
   export default {
-    mounted () {
-      this.$store.dispatch('readTodos')
-    },
 
     components: {
-      TodoHeader: Header,
-      List,
-      TodoFooter: Footer
+      Search,
+      'users-main': Main
     }
   }
 </script>
 
 
 <style>
-  .todo-container {
-    width: 600px;
-    margin: 0 auto;
-  }
 
-  .todo-container .todo-wrap {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
 </style>

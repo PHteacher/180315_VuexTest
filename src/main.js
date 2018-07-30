@@ -1,16 +1,22 @@
 import Vue from 'vue'
 import App from './App.vue'
-import store from './vuex/store'
 
-import './main.css'
+import store from './store'
+
 /*
 入口js
  */
 new Vue({
   el: '#app',
-  components: {// 注册组件
+  /*components: {
     App
   },
-  template: '<App/>',  // 将App标签渲染到el对应div中
+  template: '<App/>', */
+  render: h => h(App),
+  // render: createElement => createElement(App), // <App/>
+  /*render: function (createment) {
+    // 返回组件对应的组件标签<App/>, 返回的标签会被渲染到el元素中
+    return createment(App)
+  },*/
   store
 })
